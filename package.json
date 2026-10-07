@@ -1,0 +1,43 @@
+{
+  "name": "localhost",
+  "productName": "Localhost",
+  "version": "0.1.0",
+  "description": "Understand and control your local development environment.",
+  "author": "Liwidale",
+  "license": "MIT",
+  "private": true,
+  "main": "out/main/index.js",
+  "scripts": {
+    "engine": "node scripts/engine.mjs",
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/engine.mjs --debug && node scripts/build.mjs && electron .",
+    "dev": "node scripts/engine.mjs --debug && node scripts/build.mjs --dev && electron .",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "format": "prettier --write src scripts",
+    "lint": "prettier --check src scripts",
+    "pack:win": "node scripts/engine.mjs && node scripts/build.mjs && electron-builder --win --x64",
+    "pack:mac": "node scripts/engine.mjs --universal && node scripts/build.mjs && electron-builder --mac",
+    "pack:linux": "node scripts/engine.mjs && node scripts/build.mjs && electron-builder --linux"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.25.0",
+    "motion": "^13.5.0",
+    "prettier": "^3.0.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "typescript": "~5.9.0",
+    "vite": "^7.0.0",
+    "zustand": "^5.0.15"
+  },
+  "allowScripts": {
+    "electron-winstaller@5.4.0": true,
+    "esbuild@0.25.12": true,
+    "esbuild@0.28.2": true
+  }
+}

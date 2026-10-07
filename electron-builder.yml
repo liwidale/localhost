@@ -1,0 +1,64 @@
+appId: com.liwidale.localhost
+productName: Localhost
+copyright: Copyright © 2026 Liwidale
+directories:
+  output: release
+  buildResources: resources/icons
+files:
+  - out/**
+  - package.json
+  - "!**/*.map"
+asar: true
+extraResources:
+  - from: resources/engine
+    to: engine
+electronLanguages:
+  - en-US
+  - en-GB
+  - ru
+
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+  icon: resources/icons/icon.ico
+  executableName: Localhost
+  artifactName: Localhost-Setup-${version}.${ext}
+nsis:
+  oneClick: true
+  perMachine: false
+  runAfterFinish: true
+  createDesktopShortcut: false
+  createStartMenuShortcut: true
+  shortcutName: Localhost
+  deleteAppDataOnUninstall: false
+
+mac:
+  target:
+    - target: dmg
+      arch: [universal]
+    - target: zip
+      arch: [universal]
+  icon: resources/icons/icon.icns
+  category: public.app-category.developer-tools
+  hardenedRuntime: true
+  x64ArchFiles: "Contents/Resources/engine/localhost-engine"
+  darkModeSupport: true
+  artifactName: Localhost-${version}-mac.${ext}
+dmg:
+  title: Localhost
+  contents:
+    - x: 140
+      y: 180
+    - x: 400
+      y: 180
+      type: link
+      path: /Applications
+
+linux:
+  target: [AppImage, deb]
+  maintainer: Liwidale <299171130+liwidale@users.noreply.github.com>
+  executableName: localhost
+  icon: resources/icons/icon.png
+  category: Development
+  artifactName: Localhost-${version}.${ext}

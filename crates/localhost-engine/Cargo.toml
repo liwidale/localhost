@@ -1,0 +1,22 @@
+[package]
+name = "localhost-engine"
+description = "Background engine that the Localhost app talks to over stdio."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "localhost-engine"
+path = "src/main.rs"
+
+[dependencies]
+localhost-core.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tokio = { workspace = true, features = ["rt-multi-thread", "io-std"] }
+
+[lints]
+workspace = true

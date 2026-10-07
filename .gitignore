@@ -1,0 +1,7 @@
+/target
+node_modules/
+out/
+release/
+resources/engine/
+*.log
+.DS_Store
